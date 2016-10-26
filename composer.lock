@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3682db93b2fa027a45c77eb30690b7b2",
-    "content-hash": "468c623bcc5863e566cb4924125807b9",
+    "hash": "612b03b62095e423eeea662d7bcb30b9",
+    "content-hash": "0801527bb293a429b731b154b87a0fb5",
     "packages": [
         {
             "name": "api-clients/middleware",
@@ -50,6 +50,46 @@
                 }
             ],
             "time": "2016-10-21 21:58:49"
+        },
+        {
+            "name": "api-clients/psr7-oauth1",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-api-clients/psr7-oauth1.git",
+                "reference": "90d71192e9311b9fde7d9d5d7ba697202ac7ccc7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-api-clients/psr7-oauth1/zipball/90d71192e9311b9fde7d9d5d7ba697202ac7ccc7",
+                "reference": "90d71192e9311b9fde7d9d5d7ba697202ac7ccc7",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0 || ^5.5",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ApiClients\\Tools\\Psr7\\Oauth1\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Beau Simensen",
+                    "email": "beau@dflydev.com"
+                },
+                {
+                    "name": "Cees-Jan Kiewiet",
+                    "email": "ceesjank@gmail.com"
+                }
+            ],
+            "time": "2016-10-26 19:50:35"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -2598,6 +2638,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "api-clients/middleware": 20,
+        "api-clients/psr7-oauth1": 20,
         "api-clients/test-utilities": 20
     },
     "prefer-stable": true,
