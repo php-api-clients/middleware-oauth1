@@ -12,23 +12,21 @@
   "require": {
     "php": "^7.0",
     "api-clients/middleware": "dev-master",
-    "jacobkiers/oauth": "^1.0"
+    "guzzlehttp/psr7": "^1.3",
+    "jacobkiers/oauth": "^1.0",
+    "wyrihaximus/ticking-promise": "^1.6"
   },
   "require-dev": {
     "api-clients/test-utilities": "dev-master"
   },
-  "suggest": {
-    "wyrihaximus/react-cache-filesystem": "Filesystem cache",
-    "wyrihaximus/react-cache-redis": "Redis cache"
-  },
   "autoload": {
     "psr-4": {
-      "ApiClients\\Foundation\\Cache\\": "src/"
+      "ApiClients\\Foundation\\Oauth1\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "ApiClients\\Tests\\Foundation\\Cache\\": "tests/"
+      "ApiClients\\Tests\\Foundation\\Oauth1\\": "tests/"
     }
   },
   "config": {
