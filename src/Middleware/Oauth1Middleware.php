@@ -5,8 +5,9 @@ namespace ApiClients\Foundation\Oauth1\Middleware;
 use ApiClients\Foundation\Middleware\MiddlewareInterface;
 use ApiClients\Foundation\Middleware\PostTrait;
 use ApiClients\Foundation\Oauth1\Options;
+use ApiClients\Tools\Psr7\Oauth1\Definition;
+use ApiClients\Tools\Psr7\Oauth1\RequestSigning\RequestSigner;
 use JacobKiers\OAuth\Consumer\ConsumerInterface;
-use JacobKiers\OAuth\Request\Request as OAuthRequest;
 use JacobKiers\OAuth\SignatureMethod\SignatureMethodInterface;
 use JacobKiers\OAuth\Token\TokenInterface;
 use Psr\Http\Message\RequestInterface;
@@ -84,42 +85,18 @@ class Oauth1Middleware implements MiddlewareInterface
 
     private function signRequest(RequestInterface $request, array $options): RequestInterface
     {
-        $oauthRequest = OAuthRequest::fromConsumerAndToken(
-            $options[self::class][Options::CONSUMER],
-            $options[self::class][Options::TOKEN],
-            $request->getMethod(),
-            (string)$request->getUri(),
-            $this->extractParamsFromQuery(
-                $request->getUri()->getQuery()
-            )
-        );
-        $oauthRequest->setParameter('oauth_version', '1.0', false);
-        $oauthRequest->signRequest(
-            $options[self::class][Options::SIGNATURE_METHOD],
-            $options[self::class][Options::CONSUMER],
-            $options[self::class][Options::TOKEN]
-        );
+        /** @var ConsumerInterface */
+        $consumer = $options[self::class][Options::CONSUMER];
 
-        return $request->withAddedHeader(
-            'Authorization',
-            trim(substr($oauthRequest->toHeader(), 15))
-        );
-    }
+        /** @var TokenInterface */
+        $token = $options[self::class][Options::TOKEN];
 
-    private function extractParamsFromQuery(string $query): array
-    {
-        $params = parse_query($query);
-
-        uksort($params, 'strcmp');
-
-        foreach ($params as $key => $value) {
-            if ($value !== null) {
-                continue;
-            }
-
-            unset($params[$key]);
-        }
-
-        return $params;
+        return (new RequestSigner(
+            new Definition\ConsumerKey($consumer->getKey()),
+            new Definition\ConsumerSecret($consumer->getSecret())
+        ))->withAccessToken(
+            new Definition\AccessToken($token->getKey()),
+            new Definition\TokenSecret($token->getSecret())
+        )->sign($request);
     }
 }
