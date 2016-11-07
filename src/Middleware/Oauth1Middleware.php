@@ -76,10 +76,6 @@ class Oauth1Middleware implements MiddlewareInterface
             return false;
         }
 
-        if (!($options[self::class][Options::SIGNATURE_METHOD] instanceof SignatureMethodInterface)) {
-            return false;
-        }
-
         return true;
     }
 
