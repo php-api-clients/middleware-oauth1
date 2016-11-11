@@ -49,23 +49,6 @@ class OauthMiddlewareTest extends TestCase
                 ],
             ],
         ];
-        yield [
-            [
-                Oauth1Middleware::class => [
-                    Options::CONSUMER => new Consumer('key', 'secret'),
-                    Options::TOKEN => new Token('key', 'secret'),
-                ],
-            ],
-        ];
-        yield [
-            [
-                Oauth1Middleware::class => [
-                    Options::CONSUMER => new Consumer('key', 'secret'),
-                    Options::TOKEN => new Token('key', 'secret'),
-                    Options::SIGNATURE_METHOD => 'signature_method',
-                ],
-            ],
-        ];
     }
 
     /**
