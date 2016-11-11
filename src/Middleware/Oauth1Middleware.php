@@ -2,6 +2,7 @@
 
 namespace ApiClients\Foundation\Oauth1\Middleware;
 
+use ApiClients\Foundation\Middleware\DefaultPriorityTrait;
 use ApiClients\Foundation\Middleware\MiddlewareInterface;
 use ApiClients\Foundation\Middleware\PostTrait;
 use ApiClients\Foundation\Oauth1\Options;
@@ -19,6 +20,7 @@ use function WyriHaximus\React\futurePromise;
 
 class Oauth1Middleware implements MiddlewareInterface
 {
+    use DefaultPriorityTrait;
     use PostTrait;
 
     /**
