@@ -8,9 +8,6 @@ use ApiClients\Foundation\Middleware\PostTrait;
 use ApiClients\Foundation\Oauth1\Options;
 use ApiClients\Tools\Psr7\Oauth1\Definition;
 use ApiClients\Tools\Psr7\Oauth1\RequestSigning\RequestSigner;
-use JacobKiers\OAuth\Consumer\ConsumerInterface;
-use JacobKiers\OAuth\SignatureMethod\SignatureMethodInterface;
-use JacobKiers\OAuth\Token\TokenInterface;
 use Psr\Http\Message\RequestInterface;
 use React\EventLoop\LoopInterface;
 use React\Promise\CancellablePromiseInterface;
@@ -58,20 +55,19 @@ class Oauth1Middleware implements MiddlewareInterface
             return false;
         }
 
-        if (!isset($options[self::class][Options::CONSUMER])) {
-            return false;
-        }
+        foreach ([
+            Options::CONSUMER_KEY,
+            Options::CONSUMER_SECRET,
+            Options::ACCESS_TOKEN,
+            Options::TOKEN_SECRET,
+        ] as $option) {
+            if (!isset($options[self::class][$option])) {
+                return false;
+            }
 
-        if (!($options[self::class][Options::CONSUMER] instanceof ConsumerInterface)) {
-            return false;
-        }
-
-        if (!isset($options[self::class][Options::TOKEN])) {
-            return false;
-        }
-
-        if (!($options[self::class][Options::TOKEN] instanceof TokenInterface)) {
-            return false;
+            if (!($options[self::class][$option] instanceof $option)) {
+                return false;
+            }
         }
 
         return true;
@@ -79,18 +75,12 @@ class Oauth1Middleware implements MiddlewareInterface
 
     private function signRequest(RequestInterface $request, array $options): RequestInterface
     {
-        /** @var ConsumerInterface */
-        $consumer = $options[self::class][Options::CONSUMER];
-
-        /** @var TokenInterface */
-        $token = $options[self::class][Options::TOKEN];
-
         return (new RequestSigner(
-            new Definition\ConsumerKey($consumer->getKey()),
-            new Definition\ConsumerSecret($consumer->getSecret())
+            new Definition\ConsumerKey($options[self::class][Options::CONSUMER_KEY]),
+            new Definition\ConsumerSecret($options[self::class][Options::CONSUMER_SECRET])
         ))->withAccessToken(
-            new Definition\AccessToken($token->getKey()),
-            new Definition\TokenSecret($token->getSecret())
+            new Definition\AccessToken($options[self::class][Options::ACCESS_TOKEN]),
+            new Definition\TokenSecret($options[self::class][Options::TOKEN_SECRET])
         )->sign($request);
     }
 }

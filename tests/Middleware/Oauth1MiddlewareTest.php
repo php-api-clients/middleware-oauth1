@@ -4,11 +4,9 @@ namespace ApiClients\Tests\Foundation\Cache\Middleware;
 
 use ApiClients\Foundation\Oauth1\Middleware\Oauth1Middleware;
 use ApiClients\Foundation\Oauth1\Options;
+use ApiClients\Tools\Psr7\Oauth1\Definition;
 use ApiClients\Tools\TestUtilities\TestCase;
 use GuzzleHttp\Psr7\Request;
-use JacobKiers\OAuth\Consumer\Consumer;
-use JacobKiers\OAuth\SignatureMethod\HmacSha1;
-use JacobKiers\OAuth\Token\Token;
 use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
 use function Clue\React\Block\await;
@@ -19,36 +17,41 @@ class OauthMiddlewareTest extends TestCase
 {
     public function providerIncompleteRequestOptions()
     {
+        $options = [];
+
         yield [
-            [],
+            $options,
         ];
+
+        $options[Oauth1Middleware::class] = [];
+
         yield [
-            [
-                Oauth1Middleware::class => [],
-            ],
+            $options,
         ];
-        yield [
-            [
-                Oauth1Middleware::class => [
-                    Options::CONSUMER => 'consumer',
-                ],
-            ],
-        ];
-        yield [
-            [
-                Oauth1Middleware::class => [
-                    Options::CONSUMER => new Consumer('key', 'secret'),
-                ],
-            ],
-        ];
-        yield [
-            [
-                Oauth1Middleware::class => [
-                    Options::CONSUMER => new Consumer('key', 'secret'),
-                    Options::TOKEN => 'token',
-                ],
-            ],
-        ];
+
+        foreach ([
+            Options::CONSUMER_KEY,
+            Options::CONSUMER_SECRET,
+            Options::ACCESS_TOKEN,
+            Options::TOKEN_SECRET,
+        ] as $option) {
+
+            $options[Oauth1Middleware::class][$option] = $option;
+
+            yield [
+                $options,
+            ];
+
+            if ($option === Options::TOKEN_SECRET) {
+                break;
+            }
+
+            $options[Oauth1Middleware::class][$option] = new $option($option);
+
+            yield [
+                $options,
+            ];
+        }
     }
 
     /**
@@ -69,9 +72,10 @@ class OauthMiddlewareTest extends TestCase
     {
         $options = [
             Oauth1Middleware::class => [
-                Options::CONSUMER => new Consumer('key', 'secret'),
-                Options::TOKEN => new Token('key', 'secret'),
-                Options::SIGNATURE_METHOD => new HmacSha1(),
+                Options::CONSUMER_KEY => new Definition\ConsumerKey(''),
+                Options::CONSUMER_SECRET => new Definition\ConsumerSecret(''),
+                Options::ACCESS_TOKEN => new Definition\AccessToken(''),
+                Options::TOKEN_SECRET => new Definition\TokenSecret(''),
             ],
         ];
         $loop = Factory::create();

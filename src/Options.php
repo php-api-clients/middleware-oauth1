@@ -2,9 +2,15 @@
 
 namespace ApiClients\Foundation\Oauth1;
 
-class Options
+use ApiClients\Tools\Psr7\Oauth1\Definition\AccessToken;
+use ApiClients\Tools\Psr7\Oauth1\Definition\ConsumerKey;
+use ApiClients\Tools\Psr7\Oauth1\Definition\ConsumerSecret;
+use ApiClients\Tools\Psr7\Oauth1\Definition\TokenSecret;
+
+final class Options
 {
-    const CONSUMER         = 'consumer';
-    const TOKEN            = 'token';
-    const SIGNATURE_METHOD = 'signature_method';
+    const CONSUMER_KEY     = ConsumerKey::class;
+    const CONSUMER_SECRET  = ConsumerSecret::class;
+    const ACCESS_TOKEN     = AccessToken::class;
+    const TOKEN_SECRET     = TokenSecret::class;
 }

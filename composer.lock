@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "612b03b62095e423eeea662d7bcb30b9",
-    "content-hash": "0801527bb293a429b731b154b87a0fb5",
+    "hash": "1e99520afb53970214a70924fce6bec5",
+    "content-hash": "6448c098b55a37c287e514b08dfd7b55",
     "packages": [
         {
             "name": "api-clients/middleware",
@@ -13,25 +13,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/middleware.git",
-                "reference": "3ac9c02e65aec758d1bcbbca35e681d04305a271"
+                "reference": "ee8177fe41eb1f185b9e7d9aabd1cc2106e7eefe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/middleware/zipball/3ac9c02e65aec758d1bcbbca35e681d04305a271",
-                "reference": "3ac9c02e65aec758d1bcbbca35e681d04305a271",
+                "url": "https://api.github.com/repos/php-api-clients/middleware/zipball/ee8177fe41eb1f185b9e7d9aabd1cc2106e7eefe",
+                "reference": "ee8177fe41eb1f185b9e7d9aabd1cc2106e7eefe",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
-                "psr/http-message": "^1.0"
+                "psr/http-message": "^1.0",
+                "react/promise": "^2.4"
             },
             "require-dev": {
                 "api-clients/test-utilities": "dev-master",
-                "clue/block-react": "^1.1",
-                "humbug/humbug": "1.0.0-alpha2",
-                "phpspec/prophecy": "^1.6",
-                "phpunit/phpunit": "^5.2.3",
-                "squizlabs/php_codesniffer": "^2.6"
+                "guzzlehttp/psr7": "^1.3"
             },
             "type": "library",
             "autoload": {
@@ -49,7 +46,7 @@
                     "email": "ceesjank@gmail.com"
                 }
             ],
-            "time": "2016-11-11 06:42:02"
+            "time": "2016-11-16 20:41:49"
         },
         {
             "name": "api-clients/psr7-oauth1",
@@ -57,12 +54,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/psr7-oauth1.git",
-                "reference": "86a3c433f5a2c640d453e9305f3efe55cbce3bd9"
+                "reference": "9b7c026b47d10aef661a35d08c73e05e42427718"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/psr7-oauth1/zipball/86a3c433f5a2c640d453e9305f3efe55cbce3bd9",
-                "reference": "86a3c433f5a2c640d453e9305f3efe55cbce3bd9",
+                "url": "https://api.github.com/repos/php-api-clients/psr7-oauth1/zipball/9b7c026b47d10aef661a35d08c73e05e42427718",
+                "reference": "9b7c026b47d10aef661a35d08c73e05e42427718",
                 "shasum": ""
             },
             "require": {
@@ -95,7 +92,7 @@
                     "email": "ceesjank@gmail.com"
                 }
             ],
-            "time": "2016-11-01 22:34:17"
+            "time": "2016-11-18 18:08:59"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -154,65 +151,6 @@
                 "uri"
             ],
             "time": "2016-06-24 23:00:38"
-        },
-        {
-            "name": "jacobkiers/oauth",
-            "version": "1.0.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jacobkiers/OAuth.git",
-                "reference": "95477a77107436e67a10e799fad04d82719a5f1e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jacobkiers/OAuth/zipball/95477a77107436e67a10e799fad04d82719a5f1e",
-                "reference": "95477a77107436e67a10e799fad04d82719a5f1e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "*",
-                "phpunit/phpunit": "3.7.*@stable",
-                "squizlabs/php_codesniffer": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "JacobKiers\\OAuth": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Gary Jones",
-                    "email": "gary@garyjones.co.uk",
-                    "role": "developer"
-                },
-                {
-                    "name": "Alexandre Eher",
-                    "role": "Composer packager"
-                },
-                {
-                    "name": "Jacob Kiers",
-                    "email": "jacob@alphacomm.nl",
-                    "role": "developer"
-                },
-                {
-                    "name": "Andy Smith",
-                    "role": "original author"
-                }
-            ],
-            "description": "Based on Andy Smith's basic PHP library for OAuth 1.0a",
-            "homepage": "https://github.com/jacobkiers/OAuth",
-            "keywords": [
-                "oauth"
-            ],
-            "time": "2015-10-02 13:50:51"
         },
         {
             "name": "psr/http-message",
@@ -406,12 +344,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/test-utilities.git",
-                "reference": "0890f53574fa987177e33557680e701f444eaa55"
+                "reference": "dc2d7a447eb02be1e8e4847265391b19f2076af2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/test-utilities/zipball/0890f53574fa987177e33557680e701f444eaa55",
-                "reference": "0890f53574fa987177e33557680e701f444eaa55",
+                "url": "https://api.github.com/repos/php-api-clients/test-utilities/zipball/dc2d7a447eb02be1e8e4847265391b19f2076af2",
+                "reference": "dc2d7a447eb02be1e8e4847265391b19f2076af2",
                 "shasum": ""
             },
             "require": {
@@ -439,7 +377,7 @@
                     "email": "ceesjank@gmail.com"
                 }
             ],
-            "time": "2016-11-05 22:45:05"
+            "time": "2016-11-20 15:12:15"
         },
         {
             "name": "clue/block-react",
@@ -1329,16 +1267,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.8",
+            "version": "1.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "3144ae21711fb6cac0b1ab4cbe63b75ce3d4e8da"
+                "reference": "3b402f65a4cc90abf6e1104e388b896ce209631b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/3144ae21711fb6cac0b1ab4cbe63b75ce3d4e8da",
-                "reference": "3144ae21711fb6cac0b1ab4cbe63b75ce3d4e8da",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/3b402f65a4cc90abf6e1104e388b896ce209631b",
+                "reference": "3b402f65a4cc90abf6e1104e388b896ce209631b",
                 "shasum": ""
             },
             "require": {
@@ -1374,20 +1312,20 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2015-09-15 10:49:45"
+            "time": "2016-11-15 14:06:22"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.6.2",
+            "version": "5.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "cd13b23ac5a519a4708e00736c26ee0bb28b2e01"
+                "reference": "4ddb822f1de421b4cadb47570a525fd7d9359493"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/cd13b23ac5a519a4708e00736c26ee0bb28b2e01",
-                "reference": "cd13b23ac5a519a4708e00736c26ee0bb28b2e01",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4ddb822f1de421b4cadb47570a525fd7d9359493",
+                "reference": "4ddb822f1de421b4cadb47570a525fd7d9359493",
                 "shasum": ""
             },
             "require": {
@@ -1415,7 +1353,9 @@
                 "symfony/yaml": "~2.1|~3.0"
             },
             "conflict": {
-                "phpdocumentor/reflection-docblock": "3.0.2"
+                "phpdocumentor/reflection-docblock": "3.0.2",
+                "sebastian/object-enumerator": "1.0.1",
+                "sebastian/recursion-context": "1.0.3 || 1.0.4"
             },
             "require-dev": {
                 "ext-pdo": "*"
@@ -1456,27 +1396,27 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-10-25 07:40:25"
+            "time": "2016-11-18 09:50:51"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "3.4.0",
+            "version": "3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "238d7a2723bce689c79eeac9c7d5e1d623bb9dc2"
+                "reference": "45026c8383187ad1dcb14fbfec77dced265b9cfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/238d7a2723bce689c79eeac9c7d5e1d623bb9dc2",
-                "reference": "238d7a2723bce689c79eeac9c7d5e1d623bb9dc2",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/45026c8383187ad1dcb14fbfec77dced265b9cfc",
+                "reference": "45026c8383187ad1dcb14fbfec77dced265b9cfc",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
                 "php": "^5.6 || ^7.0",
                 "phpunit/php-text-template": "^1.2",
-                "sebastian/exporter": "^1.2"
+                "sebastian/exporter": "^1.2 || ^2.0"
             },
             "conflict": {
                 "phpunit/phpunit": "<5.4.0"
@@ -1515,7 +1455,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-10-09 07:01:45"
+            "time": "2016-11-19 09:07:46"
         },
         {
             "name": "psr/log",
@@ -1661,22 +1601,22 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "1.2.0",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "937efb279bd37a375bcadf584dec0726f84dbf22"
+                "reference": "6a1ed12e8b2409076ab22e3897126211ff8b1f7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/937efb279bd37a375bcadf584dec0726f84dbf22",
-                "reference": "937efb279bd37a375bcadf584dec0726f84dbf22",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/6a1ed12e8b2409076ab22e3897126211ff8b1f7f",
+                "reference": "6a1ed12e8b2409076ab22e3897126211ff8b1f7f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "sebastian/diff": "~1.2",
-                "sebastian/exporter": "~1.2"
+                "sebastian/exporter": "~1.2 || ~2.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.4"
@@ -1721,7 +1661,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2015-07-26 15:48:44"
+            "time": "2016-11-19 09:18:40"
         },
         {
             "name": "sebastian/diff",
@@ -2434,16 +2374,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "dff51f72b0706335131b00a7f49606168c582594"
+                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/dff51f72b0706335131b00a7f49606168c582594",
-                "reference": "dff51f72b0706335131b00a7f49606168c582594",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/e79d363049d1c2128f133a2667e4f4190904f7f4",
+                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4",
                 "shasum": ""
             },
             "require": {
@@ -2455,7 +2395,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2-dev"
+                    "dev-master": "1.3-dev"
                 }
             },
             "autoload": {
@@ -2489,7 +2429,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-05-18 14:26:46"
+            "time": "2016-11-14 01:06:16"
         },
         {
             "name": "symfony/process",
