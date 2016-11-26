@@ -13,7 +13,7 @@ use function Clue\React\Block\await;
 use React\EventLoop\Factory;
 use function React\Promise\resolve;
 
-class OauthMiddlewareTest extends TestCase
+class Oauth1MiddlewareTest extends TestCase
 {
     public function providerIncompleteRequestOptions()
     {
