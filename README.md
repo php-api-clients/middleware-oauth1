@@ -7,6 +7,14 @@
 [![License](https://poser.pugx.org/api-clients/middleware-oauth1/license.png)](https://packagist.org/packages/api-clients/middleware-oauth1)
 [![PHP 7 ready](http://php7ready.timesplinter.ch/php-api-clients/middleware-oauth1/badge.svg)](https://appveyor-ci.org/php-api-clients/middleware-oauth1)
 
+# Installation
+
+To install via [Composer](http://getcomposer.org/), use the command below, it will automatically detect the latest version and bind it with `^`.
+
+```
+composer require api-clients/middleware-oauth1 
+```
+
 # License
 
 The MIT License (MIT)
