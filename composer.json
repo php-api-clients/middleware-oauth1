@@ -2,8 +2,6 @@
   "name": "api-clients/middleware-oauth1",
   "description": "Oauth1 middleware",
   "license": "MIT",
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "authors": [
     {
       "name": "Cees-Jan Kiewiet",
@@ -18,16 +16,16 @@
     "wyrihaximus/ticking-promise": "^1.6"
   },
   "require-dev": {
-    "api-clients/test-utilities": "^1.0"
+    "api-clients/test-utilities": "^2.0"
   },
   "autoload": {
     "psr-4": {
-      "ApiClients\\Foundation\\Oauth1\\": "src/"
+      "ApiClients\\Middleware\\Oauth1\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "ApiClients\\Tests\\Foundation\\Oauth1\\": "tests/"
+      "ApiClients\\Tests\\Middleware\\Oauth1\\": "tests/"
     }
   },
   "config": {

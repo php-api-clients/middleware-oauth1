@@ -1,16 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace ApiClients\Tests\Foundation\Cache\Middleware;
+namespace ApiClients\Tests\Middleware\Oauth1;
 
-use ApiClients\Foundation\Oauth1\Middleware\Oauth1Middleware;
-use ApiClients\Foundation\Oauth1\Options;
+use ApiClients\Middleware\Oauth1\Oauth1Middleware;
+use ApiClients\Middleware\Oauth1\Options;
 use ApiClients\Tools\Psr7\Oauth1\Definition;
 use ApiClients\Tools\TestUtilities\TestCase;
 use GuzzleHttp\Psr7\Request;
 use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
-use function Clue\React\Block\await;
 use React\EventLoop\Factory;
+use function Clue\React\Block\await;
 use function React\Promise\resolve;
 
 class Oauth1MiddlewareTest extends TestCase

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ApiClients\Foundation\Oauth1;
+namespace ApiClients\Middleware\Oauth1;
 
 use ApiClients\Tools\Psr7\Oauth1\Definition\AccessToken;
 use ApiClients\Tools\Psr7\Oauth1\Definition\ConsumerKey;
