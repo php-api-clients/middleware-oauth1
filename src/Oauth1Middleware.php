@@ -3,6 +3,7 @@
 namespace ApiClients\Middleware\Oauth1;
 
 use ApiClients\Foundation\Middleware\DefaultPriorityTrait;
+use ApiClients\Foundation\Middleware\ErrorTrait;
 use ApiClients\Foundation\Middleware\MiddlewareInterface;
 use ApiClients\Foundation\Middleware\PostTrait;
 use ApiClients\Tools\Psr7\Oauth1\Definition;
@@ -18,6 +19,7 @@ class Oauth1Middleware implements MiddlewareInterface
 {
     use DefaultPriorityTrait;
     use PostTrait;
+    use ErrorTrait;
 
     /**
      * @var LoopInterface
