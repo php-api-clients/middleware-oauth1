@@ -17,7 +17,6 @@ use function WyriHaximus\React\futurePromise;
 
 class Oauth1Middleware implements MiddlewareInterface
 {
-    use DefaultPriorityTrait;
     use PostTrait;
     use ErrorTrait;
 
@@ -39,8 +38,11 @@ class Oauth1Middleware implements MiddlewareInterface
      * @param array $options
      * @return CancellablePromiseInterface
      */
-    public function pre(RequestInterface $request, array $options = []): CancellablePromiseInterface
-    {
+    public function pre(
+        RequestInterface $request,
+        string $transactionId,
+        array $options = []
+    ): CancellablePromiseInterface {
         if (!$this->validateOptions($options)) {
             return resolve($request);
         }
