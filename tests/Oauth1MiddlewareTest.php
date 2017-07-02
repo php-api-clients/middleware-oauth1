@@ -63,7 +63,7 @@ class Oauth1MiddlewareTest extends TestCase
         $request = $this->prophesize(RequestInterface::class)->reveal();
 
         $middleware = new Oauth1Middleware($loop);
-        $result = await($middleware->pre($request, $options), $loop);
+        $result = await($middleware->pre($request, 'abc', $options), $loop);
 
         $this->assertSame($request, $result);
     }
@@ -85,7 +85,7 @@ class Oauth1MiddlewareTest extends TestCase
         );
 
         $middleware = new Oauth1Middleware($loop);
-        $result = await($middleware->pre($request, $options), $loop);
+        $result = await($middleware->pre($request, 'abc', $options), $loop);
 
         $this->assertNotSame($request, $result);
 
