@@ -16,7 +16,7 @@
     "wyrihaximus/ticking-promise": "^1.6"
   },
   "require-dev": {
-    "api-clients/test-utilities": "^3.0.1"
+    "api-clients/test-utilities": "^5.1.0"
   },
   "autoload": {
     "psr-4": {
