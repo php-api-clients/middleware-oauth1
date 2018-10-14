@@ -2,7 +2,6 @@
 
 namespace ApiClients\Middleware\Oauth1;
 
-use ApiClients\Foundation\Middleware\DefaultPriorityTrait;
 use ApiClients\Foundation\Middleware\ErrorTrait;
 use ApiClients\Foundation\Middleware\MiddlewareInterface;
 use ApiClients\Foundation\Middleware\PostTrait;
@@ -11,7 +10,6 @@ use ApiClients\Tools\Psr7\Oauth1\RequestSigning\RequestSigner;
 use Psr\Http\Message\RequestInterface;
 use React\EventLoop\LoopInterface;
 use React\Promise\CancellablePromiseInterface;
-use function GuzzleHttp\Psr7\parse_query;
 use function React\Promise\resolve;
 use function WyriHaximus\React\futurePromise;
 
@@ -34,8 +32,8 @@ class Oauth1Middleware implements MiddlewareInterface
     }
 
     /**
-     * @param RequestInterface $request
-     * @param array $options
+     * @param  RequestInterface            $request
+     * @param  array                       $options
      * @return CancellablePromiseInterface
      */
     public function pre(

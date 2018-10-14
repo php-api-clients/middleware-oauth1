@@ -7,11 +7,9 @@ use ApiClients\Middleware\Oauth1\Options;
 use ApiClients\Tools\Psr7\Oauth1\Definition;
 use ApiClients\Tools\TestUtilities\TestCase;
 use GuzzleHttp\Psr7\Request;
-use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
 use React\EventLoop\Factory;
 use function Clue\React\Block\await;
-use function React\Promise\resolve;
 
 class Oauth1MiddlewareTest extends TestCase
 {
@@ -35,7 +33,6 @@ class Oauth1MiddlewareTest extends TestCase
             Options::ACCESS_TOKEN,
             Options::TOKEN_SECRET,
         ] as $option) {
-
             $options[Oauth1Middleware::class][$option] = $option;
 
             yield [
